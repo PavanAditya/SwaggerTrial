@@ -16,6 +16,7 @@ const promiseMoviesGetOne = require('./controllers/moviesGetOne')
 const promiseMoviesPutOne = require('./controllers/moviesPutOne')
 const promiseMoviesPutHero = require('./controllers/moviesPutHero')
 const promiseMoviesDeleteOne = require('./controllers/moviesDeleteOne')
+const promiseMoviesDeleteAll = require('./controllers/moviesDeleteAll')
 
 
 app.all('*', function(req, res, next) {
@@ -42,11 +43,12 @@ app.post('/post', bodyParser, (req, res) => {
         const db = client.db(dbName);
 
         Promise.resolve().then(promiseMoviesPost(db, json)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(() => {
-                console.log("Inserted movies");
+                console.log("Inserted Hero");
+                res.send("Inserted Hero");
             });
     });
 })
@@ -58,12 +60,13 @@ app.get('/get', (req, res) => {
         const db = client.db(dbName);
 
         Promise.resolve().then(promiseMoviesGet(db, res)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
                 // res.send(docs)
-                console.log('data retrieved successfully');
+                console.log('Hero retrieved successfully');
+                res.send('Hero retrieved successfully');
             });
     });
 })
@@ -78,11 +81,12 @@ app.put('/put', bodyParser, (req, res) => {
         const db = client.db(dbName);
 
         Promise.resolve().then(promiseMoviesPut(db)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
-                console.log("records updated once");
+                console.log("Heroes updated once");
+                res.send("Heroes updated once");
                 //   res.send(docs)
             });
     });
@@ -98,11 +102,12 @@ app.delete('/delete', bodyParser, (req, res) => {
         const db = client.db(dbName);
 
         Promise.resolve().then(promiseMoviesDelete(db)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
-                console.log("records updated once");
+                console.log("Heroes updated once");
+                res.send("Heroes updated once");
                 // resolve(docs);
             });
     });
@@ -117,12 +122,13 @@ app.get('/get/one', (req, res) => {
         let paramValue = req.query.id;
 
         Promise.resolve().then(promiseMoviesGetOne(db, res, paramValue)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(() => {
                 // res.send(docs)
                 console.log('data retrieved');
+                res.send('data retrieved');
             });
     });
 })
@@ -143,11 +149,12 @@ app.delete('/delete/one', bodyParser, (req, res) => {
         console.log(paramValue);
 
         Promise.resolve().then(promiseMoviesDeleteOne(db)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
                 console.log("records deleted once");
+                res.send("records deleted once");
                 // resolve(docs);
             });
     });
@@ -166,11 +173,12 @@ app.put('/put/one', bodyParser, (req, res) => {
         // console.log(paramValue);
 
         Promise.resolve().then(promiseMoviesPutOne(db)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
                 console.log("records updated once");
+                res.send("records updated once");
                 //   res.send(docs)
             });
     });
@@ -189,12 +197,31 @@ app.put('/put/hero', bodyParser, (req, res) => {
         // console.log(paramValue);
 
         Promise.resolve().then(promiseMoviesPutHero(db)).catch(err => {
-            console.error(err);
+            // console.error(err);
             res.send(err);
         })
             .then(docs => {
                 console.log("records updated once");
+                res.send("records updated once");
                 //   res.send(docs)
+            });
+    });
+})
+
+app.delete('/delete/all', bodyParser, (req, res) => {
+
+    client.connect(function (err) {
+        console.log("Connected successfully to server");
+
+        const db = client.db(dbName);
+        Promise.resolve().then(promiseMoviesDeleteAll(db)).catch(err => {
+            // console.error(err);
+            res.send(err);
+        })
+            .then(docs => {
+                console.log("records deleted once");
+                // resolve(docs);
+                res.send(docs);
             });
     });
 })

@@ -1,6 +1,5 @@
-{
-    "superheros":[
-        {
+[
+    {
             "superHero": "Captain America",
             "heroHeight":6.4,
             "heroGender":true,
@@ -109,4 +108,3 @@
             "fightsWon":5
         }
     ]
-}

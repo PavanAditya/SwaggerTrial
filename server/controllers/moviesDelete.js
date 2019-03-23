@@ -13,8 +13,8 @@ const promiseMovies = (db, res) => (new Promise((resolve, reject) => {
                     collection.deleteMany({ $where:'this.superpowers.length < 3' } , function (err) {
                         // console.log(docs.deletedCount,'del')
                         console.log(docs);
-                        // resolve(docs);
-                        res.send(docs);
+                        resolve(docs);
+                        // res.send(docs);
                     });
                 // });
             });

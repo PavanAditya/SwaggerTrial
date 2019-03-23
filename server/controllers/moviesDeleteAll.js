@@ -5,9 +5,9 @@ const promiseMovies = (db, res) => (new Promise((resolve, reject) => {
     const collection = db.collection('documents');
     // const collection = await db.collection('documents'); //async-await
 
-    collection.find({}).toArray(function (err, docs) {
+    collection.deleteMany({}, function (err, docs) {
 
-        console.log("Found the following movies");
+        console.log("Deleted Items");
         // res.send(docs);
         resolve(docs);
     });

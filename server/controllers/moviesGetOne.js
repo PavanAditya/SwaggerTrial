@@ -11,8 +11,8 @@ const promiseMovies = (db, res, paramValue) => (new Promise((resolve, reject) =>
     console.log(paramValue)
     collection.find({'_id': ObjectId(paramValue)}).toArray(function (err, docs) {
         console.log("Found the following movies");
-        res.send(docs);
-        resolve();
+        // res.send(docs);
+        resolve(docs);
     }); // find with obj ID in params
 
 }))
