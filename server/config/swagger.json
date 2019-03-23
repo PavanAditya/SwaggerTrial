@@ -1,0 +1,193 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "3.0.0",
+        "title": "Swagger Invoice API Documentation",
+        "description": "A sample API that displays the details of superheroes using the features in the swagger-2.0 specification",
+        "contact": {
+            "name": "Pavan Aditya M S",
+            "email": "msp.aditya99@gmail.com"
+        },
+        "license": {
+            "name": "MIT Liscense",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3000",
+    "basePath": "",
+    "tags": [{
+        "name": "Heroes",
+        "description": "API's for superheroes"
+    }],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/get": {
+            "get": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/get/one": {
+            "get": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/put": {
+            "put": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/put/one": {
+            "put": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/put/hero": {
+            "put": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/delete": {
+            "delete": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/delete/one": {
+            "delete": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        },
+        "/post": {
+            "post": {
+                "tags": ["Heroes"],
+                "summary": "Get All Super Heroes",
+                "description": "Get All",
+                "responses": {
+                    "200": {
+                        "description": "Okay found all items",
+                        "schema": {
+                            "$ref": "#/definitions/heroes"
+                        }
+                    }
+                }
+            }
+
+        }
+    },
+    "definitions": {
+        "heroesModelSchema": {
+            "required": [
+                "superHero",
+                "heroHeight"
+            ],
+            "properties": {
+                "superHero": {
+                    "type": "string"
+                },
+                "heroHeight": {
+                    "type": "number"
+                },
+                "canFly": {
+                    "type": "boolean"
+                },
+                "fanFollowing": {
+                    "type": "number"
+                },
+                "superpowers": {
+                    "type": "string[]"
+                },
+                "fightsWon": {
+                    "type": "number"
+                }
+            }
+        },
+        "heroes": {
+            "type": "array",
+            "$ref": "#definitions/heroesModelSchema"
+        }
+    }
+}
